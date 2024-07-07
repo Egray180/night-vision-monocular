@@ -45,7 +45,7 @@ Choice of helmet and other accessories is up to you — any helmet with a shroud
 
 General instructions for setting up your Raspberry Pi can be found [here](https://www.raspberrypi.com/documentation/computers/getting-started.html). For compatibility with the screen driver and camera interface, select this operating system in the imager. 
 
-image
+![](assets/os_version.png)
 
 I recommend setting up your Raspberry Pi as a headless computer so that you don’t need extra peripherals (and the Raspberry Pi Zero doesn’t have HDMI or USB). If you choose a headless setup, when installing the OS enable SSH and configure wifi. Use PuTTY to connect to the Raspberry Pi with the hostname that you configured, and sign in with your username and password. To get the IP address of your Raspberry Pi, run `ifconfig` in the terminal and look next to inet. Follow [this](https://www.youtube.com/watch?v=psy6oZ5pVVo) guide to set up VNC Viewer for remote desktop access. Note: VNC viewer is optional for if you want to control your desktop, but all of the setup can be done via the PuTTY terminal. 
 
@@ -63,7 +63,7 @@ fbcp-ili9341 is an optimized display driver that utilizes adaptive display strea
 
 Raspberry Pi's vc4-kms-v3d will cause fbcp to fail, so you need to block vc4-kms-v3d in `/boot/config.txt`. To do that type `sudo nano /boot/config.txt` in the terminal and comment out the two lines shown:
 
-image
+![](assets/vc4_change.png)
 
 Then reboot (`sudo reboot`).
 
@@ -126,25 +126,65 @@ In general, use your best judgment when selecting wire lengths and directions. U
 
 Solder the screen to the Pi as shown below, with the wires going out the bottom of the Pi perpendicular to its surface.
 
-image
-image
+![](assets/screen_wiring_table.png)
+![](assets/screen_wiring_diagram.png)
 
 Solder the push button between pin 29 (GPIO 5) and pin 30 (Gnd) and use longer wires (~10cm) so that you can feed them out of the housing through the front. 
 Solder everything else as follows:
 
-image
+![](assets/power_circuit_diagram.png)
 
 Before you add the battery, plug in the TP4056 (Micro USB) and use a multimeter to measure the voltage across VOUT+ and VOUT-  and adjust the potentiometer on the boost converter until it is 5V. 
 
 Solder VOUT+ on the boost converter to the +5V pad and VOUT- to the GND pad. Use longer wires for these connections so that you can move these components around in the housing (because the Pi is fixed). Solder these wires on the Pi so that they point away from the camera port.
 
-image
+![](assets/raspberry_pi_pads.jpg)
 
 ### Assembly
 
+All of the SolidWorks and STL files for the project are in the housing-files branch. 
+
 First, see the pictures of the assembled device in the results section to get a general idea of the way things are meant to go. Second, thread all of the holes by turning M2 screws into them. The holes are sized such that this should work well, but you might need to drill them slightly. Feed everything through the slot in the housing where the Pi sits, starting with the battery and the power circuit boards. Feed the screen wires through the screen wire slot. Once everything is inside, screw the Pi down with 2 M2 screws. Feed the switch through the switch slot (slot is wide enough if you turn the switch sideways) and seat in the housing. Slide the battery into the battery tray, and push the power circuit boards into the space between the battery tray separator and the Pi. Screw the screen in and plug in the wires. The screen should come with spacers which you will need to use. I used M2x12 screws for the screen (the screws that it came with were too short). You can use the spacers to adjust the distance from the lens to the screen until it is clear. Screw the camera into the front of the housing with spacers (I used M3 nuts) because the back of the camera is not flat and cannot sit flush against the surface of the housing. Connect the camera cable (the wire side should face the circuit boards). Finally, glue the lens into the housing with super glue. 
 
-I put strips of foam tape in the battery compartment and on the back of the screen so that the battery does not move. 
+I put strips of foam tape in the battery compartment and on the back of the screen so that the battery does not move. If you want to make sure that the IR filter on the camera never comes on, cover the sensor with opaque tape. 
 
 # Results
 
+The monocular works well in the dark and the unit cost is around $150. Here are photos of the monocular working in my basement when it was pitch black:
+
+![](assets/dark_test1.jpeg)
+![](assets/dark_test2.jpeg)
+
+The lens significantly degrades the quality of the image on the screen, which is one of the items that I want to address. In any case, the monocualar functions well with the IR Flashlight and allows me to see in dark environments. 
+
+More photos:
+
+![](assets/monocular_angle1.jpeg)
+![](assets/monocular_angle2.jpeg)
+![](assets/monocular_angle3.jpeg)
+![](assets/monocular_angle4.jpeg)
+![](assets/monocular_angle5.jpeg)
+![](assets/monocular_angle6.jpeg)
+
+![](assets/mounted_down1.jpeg)
+![](assets/mounted_down2.jpeg)
+![](assets/mounted_down3.jpeg)
+![](assets/mounted_down4.jpeg)
+![](assets/mounted_down5.jpeg)
+![](assets/mounted_down6.jpeg)
+
+![](assets/mounted_up1.jpeg)
+![](assets/mounted_up2.jpeg)
+![](assets/mounted_up3.jpeg)
+![](assets/mounted_up4.jpeg)
+
+# To Do
+
+The following improvements could be made:
+- Improve lens setup for clearer image
+- Add eyecup
+- Cover openings in housing
+- Seal housing to make device water resistant
+
+# Contact
+Created by [@EthanGray](https://github.com/Egray180) - feel free to contact me at egray180@student.ubc.ca

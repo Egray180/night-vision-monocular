@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 199309L
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -22,15 +23,15 @@
 #define MMAL_CAMERA_CAPTURE_PORT 2
 
 //will affect framerate, it seems that if framerate is higher than possible shutter speed, it will be automatically lowered
-#define CAMERA_SHUTTER_SPEED 15000
+#define CAMERA_SHUTTER_SPEED 40000
 
 //framerate above 30 only possible for some resolution, depends on the camera
 //can also reduce the displayed portion of the camera on screen
 #define CAMERA_FRAMERATE 30
 
 //resolution needs to be smaller than the screen size
-#define CAMERA_RESOLUTION_X 1280
-#define CAMERA_RESOLUTION_Y 720
+#define CAMERA_RESOLUTION_X 320
+#define CAMERA_RESOLUTION_Y 240
 
 #define CHECK_STATUS(status, msg) if (status != MMAL_SUCCESS) { fprintf(stderr, msg"\n\r");}
 

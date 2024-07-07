@@ -142,7 +142,7 @@ Solder VOUT+ on the boost converter to the +5V pad and VOUT- to the GND pad. Use
 
 ### Assembly
 
-All of the SolidWorks and STL files for the project are in the housing-files branch. 
+All of the SolidWorks and STL files for the project are in the resources folder. 
 
 First, see the pictures of the assembled device in the results section to get a general idea of the way things are meant to go. Second, thread all of the holes by turning M2 screws into them. The holes are sized such that this should work well, but you might need to drill them slightly. Feed everything through the slot in the housing where the Pi sits, starting with the battery and the power circuit boards. Feed the screen wires through the screen wire slot. Once everything is inside, screw the Pi down with 2 M2 screws. Feed the switch through the switch slot (slot is wide enough if you turn the switch sideways) and seat in the housing. Slide the battery into the battery tray, and push the power circuit boards into the space between the battery tray separator and the Pi. Screw the screen in and plug in the wires. The screen should come with spacers which you will need to use. I used M2x12 screws for the screen (the screws that it came with were too short). You can use the spacers to adjust the distance from the lens to the screen until it is clear. Screw the camera into the front of the housing with spacers (I used M3 nuts) because the back of the camera is not flat and cannot sit flush against the surface of the housing. Connect the camera cable (the wire side should face the circuit boards). Finally, glue the lens into the housing with super glue. 
 
